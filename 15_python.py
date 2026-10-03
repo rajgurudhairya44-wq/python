@@ -1,16 +1,42 @@
-interest = lambda amount,rate,year: (amount * rate * year) / 100
-square = lambda number: number * number 
-area = lambda length, width : length * width 
+#dictionary related methods 
+product = {
+    "id": 101,
+    "name": "Laptop",
+    "brand": "Dell",
+    "category": "Electronics",
+    "price": 55000,
+    "quantity": 15,
+    "color": "Black",
+    "weight": "1.8 kg",
+    "warranty": "1 Year",
+    "rating": 4.5
+}
+print(product)
+#copy dictionary into another variable
+product_2 = product.copy()
+print("Product 2 dictionary",product_2)
+product_2.clear()
+print("Product 2 dictionary",product_2)
 
-amount = float(input("Enter amount: "))
-rate = float(input("Enter rate: "))
-year = int(input("Enter number of years: "))
+#get only keys
+print("only keys ", product.keys())
+print("only values ", product.values())
+print("both key and value ", product.items())
 
-number = int(input("Enter a number: "))
+#remove key category
+product.pop("category")
 
-length = float(input("Enter length: "))
-width = float(input("Enter width: "))
+#remove last key value pair 
+product.popitem()
 
-print("Simple interest",interest(amount,rate,year))
-print("Square ",square(number))
-print("area ",area(length,width))
+print("now dictionary has ",product)
+person_fields = ["surname", "name", "dob", "gender", "weight"]
+
+#create dictionary using value of the list as key
+kabir = dict.fromkeys(person_fields)
+print(kabir)
+kabir.update({'name':'kabir','surname':'patel','city':'bhavnagar'})
+print(kabir)
+print("value of surname key ",kabir.get('surname'))
+print("value of mobile key ",kabir.get('mobile'))
+print("value of mobile key ",kabir.get('mobile','not available'))
